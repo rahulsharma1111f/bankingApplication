@@ -1,0 +1,36 @@
+<mat-tab-group mat-stretch-tabs [(selectedIndex)]="selectedIndex" (selectedIndexChange)="onTabChange($event)">
+    <mat-tab>
+        <ng-template mat-tab-label>
+            Deposit Form
+        </ng-template>
+        <app-deposit></app-deposit>
+    </mat-tab>
+
+    <mat-tab>
+        <ng-template mat-tab-label>
+            Withdraw Form
+        </ng-template>
+        <app-withdraw></app-withdraw>
+    </mat-tab>
+
+    <mat-tab>
+        <ng-template mat-tab-label>
+            user Balance
+        </ng-template>
+        <app-user-balance></app-user-balance>
+    </mat-tab>
+
+    <mat-tab>
+        <ng-template mat-tab-label>
+            Transfer Money
+        </ng-template>
+        <app-transfer-money></app-transfer-money>
+    </mat-tab>
+
+    <mat-tab>
+        <ng-template mat-tab-label>
+            Statement
+        </ng-template>
+        <app-statement></app-statement>
+    </mat-tab>
+</mat-tab-group>

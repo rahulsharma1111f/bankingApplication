@@ -1,0 +1,31 @@
+.background {
+    background-color: #e9ecef;
+}
+
+.container {
+    display: grid;
+    flex-wrap: wrap;
+    grid-template-columns: 300px;
+    row-gap: 25px;
+    column-gap: 250px;
+    justify-content: space-evenly;
+    justify-items: stretch;
+   
+}
+
+mat-form-field {
+    width: 300px ;
+}
+
+.error-wrapper {
+    text-align: center;
+    font-size: smaller;
+    font-style: oblique;
+    -webkit-text-stroke: thin;
+}
+
+.success {
+    font-size: large;
+    font-family: fantasy;
+    color: indianred;
+}

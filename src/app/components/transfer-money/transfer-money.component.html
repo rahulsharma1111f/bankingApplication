@@ -1,0 +1,68 @@
+<div class="background">
+    <form [formGroup]="transferAmountForm" autocomplete="on">
+        <div class="container">
+
+
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>From User</mat-label>
+                    <mat-select formControlName="fromUser" required>
+                        <mat-option *ngFor="let item of UsersList" [value]="item.getId()">
+                            {{item.getUserName()}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <div class="error-wrapper">
+                    <div class="errorMessage"
+                        *ngIf="transferAmountForm.controls.fromUser.touched && transferAmountForm.controls.fromUser.errors">
+                        <div *ngIf="transferAmountForm.controls.fromUser.errors.required">FromUser is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <mat-form-field>
+                    <mat-label>Deposit Amount</mat-label>
+                    <input matInput formControlName="amount" required appOnlynumbers [noOfDigit]="10" />
+                </mat-form-field>
+                <div class="error-wrapper">
+                    <div class="errorMessage"
+                        *ngIf="transferAmountForm.controls.amount.touched && transferAmountForm.controls.amount.errors">
+                        <div *ngIf="transferAmountForm.controls.amount.errors.required">Amount is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>To User</mat-label>
+                    <mat-select formControlName="toUser" required>
+                        <mat-option *ngFor="let item of UsersList" [value]="item.getId()">
+                            {{item.getUserName()}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <div class="error-wrapper">
+                    <div class="errorMessage"
+                        *ngIf="transferAmountForm.controls.toUser.touched && transferAmountForm.controls.toUser.errors">
+                        <div *ngIf="transferAmountForm.controls.toUser.errors.required">ToUser is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button [disabled]="transferAmountForm.invalid" class="btn btn-success" (click)="transferAmount()">
+                    Transfer Amount
+                </button>
+            </div>
+            <div class="errorMessage"*ngIf="errorMessageShow"> Amount is not sufficient to Transfer
+            </div>
+            <div class="success" *ngIf="transactionStatus">
+                Transaction is Successful
+            </div>
+
+
+        </div>
+
+    </form>
+</div>

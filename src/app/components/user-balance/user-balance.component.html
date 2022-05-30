@@ -1,0 +1,31 @@
+<div class="background">
+    <form [formGroup]="userBalanceForm" autocomplete="on">
+        <div class="container">
+
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Select User</mat-label>
+                    <mat-select formControlName="userSelect" required>
+                        <mat-option *ngFor="let item of UsersList" [value]="item.getId()">
+                            {{item.getUserName()}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <div class="error-wrapper">
+                    <div class="errorMessage"
+                        *ngIf="userBalanceForm.controls.userSelect.touched && userBalanceForm.controls.userSelect.errors">
+                        <div *ngIf="userBalanceForm.controls.userSelect.errors.required">UserName is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button [disabled]="userBalanceForm.invalid" class="btn btn-success" (click)="getCurrentBalance()">
+                    Current Balance
+                </button>
+            </div>
+            {{balance}}
+
+        </div>
+    </form>
+</div>

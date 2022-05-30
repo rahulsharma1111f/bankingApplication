@@ -1,0 +1,51 @@
+<div class="background">
+    <form [formGroup]="withdrawForm" autocomplete="on">
+        <div class="container">
+
+
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Select User</mat-label>
+                    <mat-select formControlName="userSelect" required>
+                        <mat-option *ngFor="let item of UsersList" [value]="item.getId()">
+                            {{item.getUserName()}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <div class="error-wrapper">
+                    <div class="errorMessage"
+                        *ngIf="withdrawForm.controls.userSelect.touched && withdrawForm.controls.userSelect.errors">
+                        <div *ngIf="withdrawForm.controls.userSelect.errors.required">UserName is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <mat-form-field>
+                    <mat-label>Withdraw Amount</mat-label>
+                    <input matInput formControlName="amount" required appOnlynumbers [noOfDigit]="10" />
+                </mat-form-field>
+                <div class="error-wrapper">
+                    <div class="errorMessage"
+                        *ngIf="withdrawForm.controls.amount.touched && withdrawForm.controls.amount.errors">
+                        <div *ngIf="withdrawForm.controls.amount.errors.required">Amount is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button [disabled]="withdrawForm.invalid" class="btn btn-success" (click)="withdrawData()">
+                    Withdraw Amount
+                </button>
+            </div>
+            <div class="errorMessage"*ngIf="errorMessageShow"> Amount is not sufficient to Withdraw
+            </div>
+            <div class="success" *ngIf="transactionStatus">
+                Transaction is Successful
+            </div>
+
+
+        </div>
+
+    </form>
+</div>

@@ -1,0 +1,47 @@
+.mat-table {
+    border: solid 1px rgba(0, 0, 0, 0.12);
+    width: 100%;
+    /* display: block; */
+    overflow-x: auto;
+}
+
+table.mat-table th {
+    text-align: center;
+    background: #5783a6;
+    color: #fff;
+    font-weight: 600;
+    border-right: 1px solid rgb(80, 117, 146);
+    border-bottom: 1px solid rgb(80, 117, 146);
+}
+
+
+.mat-table td.mat-cell {
+    border: unset;
+    font-size: 12px;
+    padding: 0 5px;
+    text-align: center;
+}
+
+.mat-table .mat-row {
+    height: 30px !important;
+    text-align: center;
+}
+
+
+
+.background {
+    background-color: #e9ecef;
+}
+
+
+
+mat-form-field {
+    width: 300px ;
+}
+
+.error-wrapper {
+    text-align: left;
+    font-size: smaller;
+    font-style: oblique;
+    -webkit-text-stroke: thin;
+}
